@@ -252,4 +252,4 @@ void xp(struct personagem *A, int experiencia)
 	A->xp += experiencia;
 }
 
-//Teste de alteração no GITHUB
+//Teste de alteração no GITHUBa
