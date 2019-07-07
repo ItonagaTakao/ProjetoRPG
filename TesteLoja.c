@@ -2,7 +2,6 @@
 		 * * * Batalha de RPG (DE TURNOS) * * *
  	No que consiste:
 		* Batalhas de turnos
-
 		* Caracteristicas dos personagens---------------------------------------------------------------
 			- Atributos:
 				* Nome do personagem (Char)
@@ -10,7 +9,7 @@
 				* Ataque (inteiro)
 				* Defesa (inteiro)
 				* Nivel (inteiro): A cada 100 pontos de exxperiencia o nivel aumenta 1
-			
+
 			- Personagens base
 				* PV (Pontos de vida) = 20;
 				* Ataque = 5;
@@ -26,24 +25,22 @@
 					- Peitoral (5 - quantidade)
 					- Luva	   (5 - quantidade)
 					- Bota	   (5 - quantidade)
-
 				* Arma:
 					- arco		(5 - quantidade)
 					- espada	(5 - quantidade)
 					- martelo	(5 - quantidade)
-				
+
  				* Itens Consumiveis (limite de 6 itens)
 					- Potion
-			
+
 			- Equipamentos quantidade
 				* Armadura:
 					* Capacete:
-						- nome: 
+						- nome:
 						- Defesa: 30;
 						- Vida: 40:
-
 					* Capacete:
-		
+
  		* Caracteristicas dos inimigos---------------------------------------------------------------
 				*Inimigo e do tipo personagem:
 					* Nome do Inimigo (Char)
@@ -52,113 +49,109 @@
 					* Defesa (inteiro)
 					* drop de xp (inteiro)
 					* Nivel (inteiro)
-					* drop de gold	
- 		
+					* drop de gold
+
  		* Uma série de batalhas (10 FASES)---------------------------------------------------------------
 			-Fases:
 				* Fase (1):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 15;
 						* Ataque = 5;
 						* defesa = 5;
-						* nivel = 1;	
+						* nivel = 1;
 						* Drop de Experiencia: randon de 15 - 20;
 						* Drop de gold: randon de 10 - 20;
-
 				* Fase (2):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 2;
 						* Drop de Experiencia: randon 20 - 25;
-						* Drop de gold: randon de 10 - 20;			
- 				
+						* Drop de gold: randon de 10 - 20;
+
  				* Fase (3):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 3;
 						* Drop de Experiencia: randon 25 - 30;
 						* Drop de gold: randon de 10 - 20;
- 				
+
 				* Fase (4):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 4;
 						* Drop de Experiencia: 30 - 35;
 						* Drop de gold: randon de 10 - 20;
-			
+
 				* Fase (5):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 5;
 						* Drop de Experiencia: 35 - 40;
 						* Drop de gold: randon de 10 - 20;
-			
+
 				* Fase (6):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 6;
 						* Drop de Experiencia: 40 - 45;
 						* Drop de gold: randon de 10 - 20;
-		
+
 				* Fase (7):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 7;
 						* Drop de Experiencia: 45 - 50;
 						* Drop de gold: randon de 10 - 20;
-				
+
 				* Fase (8):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 8;
 						* Drop de Experiencia: 50 - 65;
 						* Drop de gold: randon de 10 - 20;
-
 				* Fase (9):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 9;
 						* Drop de Experiencia: 65 - 80;
 						* Drop de gold: randon de 10 - 20;
-		
+
 				* Fase (10):
 					- Inimigo:
-						* Nome: 
+						* Nome:
  						* PV = 20;
 						* Ataque = 5;
 						* defesa = 5;
 						* nivel = 10;
 						* Drop de Experiencia: 80 - 95;
 						* Drop de gold: randon de 10 - 20;
-
 PENDENTE:
 	- Definir PV MAX
-
 */
 
 //Bibliotecas
@@ -185,7 +178,7 @@ struct arma{
 struct inventario{
 	//Bag
 	int potion;
-	
+
 	//Equipaveis
 	struct armadura usuario;
 	struct arma jogador;
@@ -210,13 +203,14 @@ void imprime_personagem(struct personagem );
 void levelup(struct personagem *);
 void menu(struct personagem );
 void xp(struct personagem *, int);
+void loja (struct personagem *);
 
 
 //Função principal
 int main(){
 	//Iniciando personagem base
 	struct personagem J1;
-	
+
 	//Inicialização
 	int fase = 1;
 
@@ -228,15 +222,16 @@ int main(){
 	//Mostra Personagem
 	imprime_personagem(J1);
 
+	loja (&J1);
+
+	imprime_personagem(J1);
+
 	//Iniciado as fases
 	/*
 	switch(fase)
 		case(1):
-
 		break;
-
 		case(2):
-
 		break;
 	*/
 
@@ -250,7 +245,7 @@ void set_Personagem(struct personagem *A)
 	A->defesa = 5;
 	A->xp = 0;
 	A->nivel = 1;
-	A->gold = 0;
+	A->gold = 100;
 }
 
 void imprime_personagem(struct personagem A)
@@ -271,24 +266,24 @@ void imprime_inimigo(struct personagem A)
 	printf("Pontos de vida: %d\n", A.PV);
 	printf("Ataque: %d\n", A.ataque);
 	printf("Defesa: %d\n", A.defesa);
-	printf("Nivel: %d\n", A.nivel);	
+	printf("Nivel: %d\n", A.nivel);
 }
 
 void menu(struct personagem A)
 {
 	//Inicializaçao
 	int op;
-	
+
 	//Opçoes
 	printf("\n	--MENU--\n");
 	printf("(1) - Ver status do personagem\n");
 	printf("(2) - \n");
 	printf("(3) - \n");
 	printf("(4) - Iniciar proxima fase\n\n");
-	
+
 	printf("Digite uma opção: ");
 	scanf("%d", &op);
-	
+
 	while(op < 1){
 		printf("Opção invalida!!! Digite novamente: ");
 		scanf("%d", &op);
@@ -297,11 +292,9 @@ void menu(struct personagem A)
 	/*
 	while(){
 		case(1):
-			
+
 		break;
-
 		case(2):
-
 		break;
 	}
 	*/
@@ -327,7 +320,7 @@ void imprime_pocoes(struct personagem *A)
 	int i;
 	for(i = 0; i < MAX_ITENS; i++)
 	{
-		if( i <= A->bag->potion)
+		if( i <= A->bag.potion)
 			printf("(%d) - potion\n", i);
 		else
 			printf("(%d) - potion\n", i);
@@ -337,7 +330,7 @@ void imprime_pocoes(struct personagem *A)
 /*
  Input:
  Output: Retorna 1 se o item foi usado e 0 caso contrario
- Paremetros: 
+ Paremetros:
 */
 int usa_iten(int opcao, struct personagem *A)					//PENDENTE------------------------
 {
@@ -350,13 +343,13 @@ void menu_batalha(struct personagem *A, struct personagem *inimigo)		//PENDENTE-
 {
 	//Apresentação
 	printf("\n\n	***A BATALHA IRA COMEÇAR***\n\n");
-	imprime_inimigo(inimigo);
-	imprime_personagem(A);
+	imprime_inimigo(*inimigo);
+	imprime_personagem(*A);
 
 	//Iniciando a batalha
 	do{
-	
-	
+
+
 		//Inicializaçoes
 		int op, op_inventario, controle = 1;			//opçoes do menu
 
@@ -372,28 +365,28 @@ void menu_batalha(struct personagem *A, struct personagem *inimigo)		//PENDENTE-
 				imprime_pocoes(A);
 				printf("(0) - Voltar ou Item vazio\n");
 				printf("Digite o item desejado: ");
-		
+
 				do{
 					scanf("%d", &op_inventario);
 				}while(op_inventario > -1 && op_inventario < MAX_ITENS);		//Limite de intens no inventario é de 6
 
 				if(usa_iten(op_inventario, &A))
 				{
-					controle = 0;	
+					controle = 0;
 				}
 			}
-	
+
 		}while(op != 1 && controle != 0);
-	
+
 		//ATAQUE
 		if(controle == 1)
 		{
 			inimigo->PV = inimigo->PV + ( inimigo->defesa/(100 + inimigo->defesa) ) * A->ataque;		//Dano considerando a defesa
 		}
-		
+
 		//Turno do inimigo
 		A->PV = A->PV + ( A->defesa/(100 + A->defesa) ) * inimigo->ataque;
-	
+
 	}while(inimigo->PV < 0 && A->PV < 0);
 }
 
@@ -404,12 +397,68 @@ void fase(struct personagem A, struct personagem inimigo)	//PENDENTE------------
 	printf("\n\n	***A BATALHA IRA COMEÇAR***\n\n");
 	imprime_inimigo(inimigo);
 	imprime_personagem(A);
-
 	//Iniciando a batalha
 	do{
 		menu_batalha(&A, &inimigo);
 	}while(inimigo->PV < 0 && A->PV < 0);
-
 }
 */
 
+void loja (struct personagem *A) { //PENDENTE--------------------------
+    //parte visual aqui, prints e afins para aparecer a loja
+    int opPrincipal, opSecao;
+    //Execução da loja em si
+    do {
+        printf ("Opcoes: (0) Sair da loja, (1) Comprar da secao Rare, (2) Comprar da secao Epic, (3) Comprar da secao Legendary");
+        printf (",(4) Ir para a proxima pagina\n");
+        scanf ("%d", &opPrincipal);
+        switch (opPrincipal) {
+            case 0:
+                break;
+            case 1:
+                printf ("Opcoes: (0) Voltar, (1) Comprar o 1o item, (2) Comprar o 2o item, (3) Comprar o 3o item\n");
+                scanf ("%d", &opSecao);
+                switch (opSecao) {
+                    case 0:
+                        break;
+                    case 1:
+                        printf ("Esse item ...\n"); //descrição do item, lida no arquivo
+                        if (A->gold < 100)  //100 é um exemplo
+                            printf ("Voce ainda nao pode comprar esse item.\n");
+                        else {
+                            printf ("Deseja compra-lo? Digite 1 se sim e 0 se nao:\n");
+                            scanf ("%d", &opSecao);
+                            if (opSecao == 1) {
+                                //registrar o item como comprado no arquivo
+                                printf ("Parabens, voce acabou de comprar a Espada de Ferro!\n"); //exemplo
+                                A->gold -= 100; //deveria carregar o valor de compra do arquivo/matriz
+                            }
+                            else if (opSecao == 0)
+                                printf ("E uma pena...\n");
+                            else
+                                printf ("Opcao invalida!");
+                            break;
+                        }
+                    case 2:
+                        //identico ao 1, só que deve-se ler outro item do arquivo
+                        break;
+                    case 3:
+                        //identico ao 1, só que deve-se ler outro item do arquivo
+                        break;
+                    default:
+                        printf ("Opcao invalida!\n");
+                }
+                break;
+            case 2:
+                //só muda a seção em relação ao primeiro e tem dois itens ao invés de três
+                break;
+            case 3:
+                //só muda a seção em relação ao primeiro, e tem um item ao invés de três
+                break;
+            //case 4:
+                //muda de página, provavelmente usará outra linha de uma matriz que contenha o que foi lido no arquivo
+            default:
+                printf ("Opcao invalida!\n");
+        }
+    } while (opPrincipal != 0);
+}
